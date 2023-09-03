@@ -1,1 +1,1 @@
-export const apiEndpoint = "http://localhost:3000"
+export const apiEndpoint = "https://password-reset-pb94.onrender.com"
