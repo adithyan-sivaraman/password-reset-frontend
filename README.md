@@ -10,7 +10,7 @@ This Vite app is designed to allow users to reset their passwords. It utilizes B
 
 3. Install the project dependencies using npm install
 
-4. Clone back end api from this [repository](https://github.com/adithyan-sivaraman/password-reset])
+4. Clone back end api from this [repository](https://github.com/adithyan-sivaraman/password-reset)
 
 ## Configuration
 
