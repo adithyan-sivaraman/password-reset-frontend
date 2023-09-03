@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
 import AlertDialog from './Dialog';
 import { useResetContext } from '../Context';
@@ -11,8 +11,7 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const { alertOpen, handleDialog, setResetEmail, setResetKey } = useResetContext();
   const [spinner, setSpinner] = useState(false);
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
+  const [params,] = useSearchParams();
   const key = params.get('reset');
   useEffect(() => {
     if (key) {
