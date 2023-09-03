@@ -5,6 +5,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import AlertDialog from './Dialog';
 import { useResetContext } from '../Context';
 import LockIcon from '@mui/icons-material/Lock';
+import { apiEndpoint } from '../Config';
 
 const Form = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,6 @@ const Form = () => {
   const [spinner, setSpinner] = useState(false);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-
   const key = params.get('reset');
   useEffect(() => {
     if (key) {
@@ -20,7 +20,7 @@ const Form = () => {
     }
   }, [key])
   const validateKey = async (key) => {
-    const request = await fetch(`http://localhost:3000/users/validate/key/?resetkey=${key}`)
+    const request = await fetch(`${apiEndpoint}/users/validate/key/?resetkey=${key}`)
     const response = await request.json();
     
     if (response.message === "link expired") {
@@ -43,10 +43,9 @@ const Form = () => {
     }
 
     else {
-
       try {
         setSpinner(true)
-        const request = await fetch('http://localhost:3000/users/validate/email', {
+        const request = await fetch(`${apiEndpoint}/users/validate/email`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -87,7 +86,7 @@ const Form = () => {
 
 
     <div className="row">
-      <div className="col-xl-3 col-lg-4 col-md-8 col-sm-10 shadow py-3 bg-white">
+      <div className="col-md-6 col-lg-4 shadow py-3 bg-white">
         <div className='d-flex align-items-center flex-column '>
           <LockIcon sx={{ fontSize: 90 }} />
           <h4 className='text-pink'>Password Recovery</h4>

@@ -7,6 +7,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import AlertDialog from './Dialog';
+import { apiEndpoint } from '../Config';
 
 const ResetForm = () => {
   const location = useLocation();
@@ -90,7 +91,7 @@ const ResetForm = () => {
     }
     else {
       try{
-        const request = await fetch('http://localhost:3000/users/update', {
+        const request = await fetch(`${apiEndpoint}/users/update`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: resetEmail, password: password })

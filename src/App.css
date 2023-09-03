@@ -63,8 +63,8 @@ label {
 }
 
 .spinner{
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border:6px solid lightgrey !important;
   border-left:6px solid blue !important;
